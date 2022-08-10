@@ -29,15 +29,37 @@ function SeleccionarMascotaJugador(mascota){
        } else {
         alert("You shoul select one option")
        }
-            
-        
-        
-        
+              seleccionarMascotaEnemigo()
     
-        
-    
+}
+
+function seleccionarMascotaEnemigo(){
+    let ataqueAleatorio=aleatorio(0,6)
+    let  spanMascotaEnemigo=document.getElementById('mascota-enemigo')
+    switch(ataqueAleatorio){
+        case 1:
+        spanMascotaEnemigo.innerHTML="Hipodoge"
+            break
+        case 2:
+            spanMascotaEnemigo.innerHTML="Capipepo"
+            break
+        case 3:
+            spanMascotaEnemigo.innerHTML="Ratigueya"
+             break
+        case 4:
+            spanMascotaEnemigo.innerHTML="Langostelvis"
+             break
+         case 5:
+            spanMascotaEnemigo.innerHTML="Tucapalma"
+            break
+    }
+}
+
+function aleatorio(max,min){
+    return Math.floor(Math.random() * (max - min+1)+min)
 }
 
 
 //primero que cargue el html y luego este js
 window.addEventListener('load',iniciarJuego)
+
