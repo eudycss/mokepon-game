@@ -3,6 +3,8 @@ let ataqueJugador
 let ataqueEnemigo
 let resultadoPelea
 let lifesgame
+let winPlayer=3
+let winEneny=3  
 function iniciarJuego(){
     let botonMascotaJugador=document.getElementById("boton-mascota")
     botonMascotaJugador.addEventListener('click',SeleccionarMascotaJugador)
@@ -15,6 +17,9 @@ function iniciarJuego(){
     
     let botonTierra=document.getElementById("boton-tierra")
     botonTierra.addEventListener('click',ataqueTierra)
+
+    let buttonRestart=document.getElementById("boton-reiniciar")
+    buttonRestart.addEventListener('click',restartGame)
 
 }
 function SeleccionarMascotaJugador(mascota){
@@ -84,7 +89,9 @@ function seleccionarAtaqueEnemigo() {
             break;
     }
     
-    createMensaje()
+        createMensaje()
+
+    
     return ataqueEnemigo
 }
 
@@ -105,8 +112,7 @@ function combate(){
     return resultadoPelea
 }
 
-let winPlayer=3
-let winEneny=3  
+ 
 
 function lifes(){
    
@@ -155,6 +161,15 @@ function crearMensajeFinal(resultadoFinal){
     let parrafo=document.createElement('p')
     parrafo.innerHTML=resultadoFinal
     sectionMensaje.appendChild(parrafo)
+
+    let botonFuego=document.getElementById("boton-fuego")
+    botonFuego.disabled=true
+    
+    let botonAgua=document.getElementById("boton-agua")
+    botonAgua.disabled=true
+    
+    let botonTierra=document.getElementById("boton-tierra")
+    botonTierra.disabled=true
 }
 function ataqueFuego(){
     ataqueJugador='FUEGO'
@@ -174,11 +189,14 @@ function ataqueTierra(){
     seleccionarAtaqueEnemigo()
     lifes()
 }
+
 function aleatorio(max,min){
     return Math.floor(Math.random() * (max - min+1)+min)
 }
 
-
+function restartGame(){
+    location.reload()
+}
 //primero que cargue el html y luego este js
 window.addEventListener('load',iniciarJuego)
 
