@@ -1,0 +1,49 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+body{
+    font-family: 'Bebas Neue', cursive;
+    background-color: #E9D498;
+}
+#seleccionar-mascota{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.tittle{
+    color: #CD5C5C;
+}
+
+.subtitle{
+color: #3F0071;
+font-size:20px;
+}
+
+.tarjetas{
+    display: flex;
+    gap: 10px;
+}
+.tarjeta-de-mokepon{
+    width : 110px;
+    height : 61px;
+    background-color : #5d1abc;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 5px solid #4603d8;
+    border-radius: 10px;
+}
+.tarjeta-de-mokepon img {
+    width: 80px;
+    
+}
+
+#boton-mascota{
+    height: 50px;
+    width: 150px;
+    background-color: #1abc7b;
+    border-radius: 10px ;
+    
+}
