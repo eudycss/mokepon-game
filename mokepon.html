@@ -7,31 +7,53 @@
     <title>MOKEPON 🔥💧🌱</title>
 
     <script src="./js/mokepon.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
 
   </head>
   <body>
-    <h1>MOKEPON 🔥💧🌱</h1>
+    
     <section id="seleccionar-mascota">
-      <h2>Elige a tu mascota:</h2>
+      <h1  class="tittle" >MOKEPON 🔥💧🌱</h1>
 
-      <label for="hipodoge">Hipodoge</label>
-      <input type="radio"  name="mascota" id="hipodoge" >
-      <label for="capipepo">Capipepo</label>
-      <input type="radio" name="mascota" id="capipepo">
-      <label for="ratigueya">Ratigueya</label>
-      <input type="radio" name="mascota" id="ratigueya">
+      <h2 class="subtitle">Elige a tu mascota:</h2>
+      <div class="tarjetas">
+        <label class="tarjeta-de-mokepon" for="hipodoge">
+          
+        <p>Hipodoge</p>  
+        <img src="./assets/hipodoge_attack.png" alt="Imagen Hipodoge">
+        </label>
+        <input  type="radio"  name="mascota" id="hipodoge" >
 
-      <label for="langostelvis">Langostelvis</label>
-      <input type="radio" name="mascota" id="langostelvis">
+        <label class="tarjeta-de-mokepon" for="capipepo">
+          <p>Capipepo</p>  
+          <img src="./assets/capipepo_attack.png" alt="Imagen Capipepo">  
+        
+        </label>
+        <input type="radio" name="mascota" id="capipepo">
 
-      <label for="tucapalma">Tucapalma</label>
-      <input type="radio" name="mascota" id="tucapalma">
+        <label class="tarjeta-de-mokepon" for="ratigueya">
+                <p>Ratigueya</p>  
+          <img src="./assets/ratigueya.png" alt="Imagen Ratigueya">
 
+        </label>
+        <input type="radio" name="mascota" id="ratigueya">
+  
+        <label class="tarjeta-de-mokepon" for="langostelvis">Langostelvis</label>
+        <input type="radio" name="mascota" id="langostelvis">
+  
+        <label class="tarjeta-de-mokepon" for="tucapalma">Tucapalma</label>
+        <input type="radio" name="mascota" id="tucapalma">
+  
+      </div>
+
+   
 
       <button id="boton-mascota">Seleccionar</button>
     </section>
 
     <section id="seleccionar-ataque">
+      <h1  class="tittle" >MOKEPON 🔥💧🌱</h1>
+
       <h2>Elige tu ataque:</h2>
 
       <p>Tu mascota <span id="mascota-jugador"></span> tiene <span id="lifes-player">3</span> vidas</p>
@@ -47,7 +69,7 @@
 
     </section>
 
-    <section id="reiniciar">
+    <section  id="reiniciar">
         <button id="boton-reiniciar">Reiniciar</button>
     </section>
     

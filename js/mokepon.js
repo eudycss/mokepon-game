@@ -8,7 +8,11 @@ let winEneny=3
 function iniciarJuego(){
     let botonMascotaJugador=document.getElementById("boton-mascota")
     botonMascotaJugador.addEventListener('click',SeleccionarMascotaJugador)
+    let sectionSelectAtack=document.getElementById('seleccionar-ataque')
+    sectionSelectAtack.style.display='none'
 
+    let sectionRestart=document.getElementById('reiniciar')
+    sectionRestart.style.display='none'
     let botonFuego=document.getElementById("boton-fuego")
     botonFuego.addEventListener('click',ataqueFuego)
     
@@ -21,6 +25,7 @@ function iniciarJuego(){
     let buttonRestart=document.getElementById("boton-reiniciar")
     buttonRestart.addEventListener('click',restartGame)
 
+
 }
 function SeleccionarMascotaJugador(mascota){
     let inputHipodoge=document.getElementById('hipodoge')
@@ -29,6 +34,11 @@ function SeleccionarMascotaJugador(mascota){
     let inputlangostelvis=document.getElementById('langostelvis')
     let inputtucapalma=document.getElementById('tucapalma')
 
+    let sectionSelectAtack=document.getElementById('seleccionar-ataque')
+    sectionSelectAtack.style.display='block'
+
+    let sectionSelectPet=document.getElementById('seleccionar-mascota')
+    sectionSelectPet.style.display='none'
     //Spam botonMascotaJugador
     let spanMascotaJugador = document.getElementById('mascota-jugador')
 
@@ -170,6 +180,9 @@ function crearMensajeFinal(resultadoFinal){
     
     let botonTierra=document.getElementById("boton-tierra")
     botonTierra.disabled=true
+
+    let sectionRestart=document.getElementById('reiniciar')
+    sectionRestart.style.display='block'
 }
 function ataqueFuego(){
     ataqueJugador='FUEGO'
