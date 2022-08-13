@@ -35,7 +35,7 @@ function SeleccionarMascotaJugador(mascota){
     let inputtucapalma=document.getElementById('tucapalma')
 
     let sectionSelectAtack=document.getElementById('seleccionar-ataque')
-    sectionSelectAtack.style.display='block'
+    sectionSelectAtack.style.display='flex'
 
     let sectionSelectPet=document.getElementById('seleccionar-mascota')
     sectionSelectPet.style.display='none'
@@ -50,12 +50,7 @@ function SeleccionarMascotaJugador(mascota){
         else if(inputratigueya.checked){
             spanMascotaJugador.innerHTML='Ratigueya'
        
-       } else if(inputlangostelvis.checked){
-        spanMascotaJugador.innerHTML='Langostelvis'
-       
-       } else if(inputtucapalma.checked){
-        spanMascotaJugador.innerHTML='Tucapalma'
-       } else {
+       }  else {
         alert("You shoul select one option")
        }
               seleccionarMascotaEnemigo()
@@ -158,12 +153,12 @@ function verifyLifes(){
 }
 function createMensaje(){
     if(verifyLifes){
-    let parrafo =document.createElement('p')
- 
-    var newContent = document.createTextNode('Tu mascota atacó con '+ataqueJugador+  ', las mascotas del enemigo ataco con '+ataqueEnemigo+' -->'+combate());
-    parrafo.appendChild(newContent);
     var currentP = document.getElementById("mensajes");
-    document.body.insertBefore(parrafo, currentP);}
+    let parrafo =document.createElement('p')
+        parrafo.innerHTML='Tu mascota atacó con '+ataqueJugador+  ', las mascotas del enemigo ataco con '+ataqueEnemigo+' -->'+combate()
+        currentP.appendChild(parrafo);
+    
+    }
 }
 
 function crearMensajeFinal(resultadoFinal){
