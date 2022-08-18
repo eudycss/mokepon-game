@@ -105,13 +105,7 @@ input{
     font-family: 'Poppins', sans-serif;
 }
  
-/* 
-    width: 270;
-    color: #4603d8;
-    background: #e9e4f0;
-    padding: 20px;
-    margin-top: 20px;
-    border-radius: 20px;
-    
-    justify-content: center;
-}  */
+.atacks{
+    display: grid;
+    grid-template-columns: 100px 100px;
+}
