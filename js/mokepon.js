@@ -34,7 +34,8 @@ let opcionDeMokepones;
 let inputHipodoge;
 let inputcapipepo;
 let inputratigueya;
-
+let playerPet
+ 
 let resultadoPelea;
 let lifesgame;
 let winPlayer = 3;
@@ -131,14 +132,30 @@ function SeleccionarMascotaJugador() {
 
   if (inputHipodoge.checked) {
     spanMascotaJugador.innerHTML = inputHipodoge.id
+    playerPet=inputHipodoge.id
   } else if (inputcapipepo.checked) {
     spanMascotaJugador.innerHTML = inputcapipepo.id
+    playerPet=inputcapipepo.id
   } else if (inputratigueya.checked) {
     spanMascotaJugador.innerHTML =inputratigueya.id
+    playerPet=inputratigueya.id
   } else {
     alert("You shoul select one option");
   }
+
+  extractAttacks(playerPet)
   seleccionarMascotaEnemigo();
+}
+/* Extract attacks */
+function extractAttacks(){
+let attacks 
+for (let i = 0; i < mokepones.length; i++) {
+    if(playerPet === mokepones[i.name]){
+        attacks+=mokepones[i].attacks
+    }
+} 
+
+showAttacks(attacks);
 }
 
 /* Seleccionar Mascota enemigo */
