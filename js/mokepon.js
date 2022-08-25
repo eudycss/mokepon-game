@@ -53,18 +53,46 @@ class Mokepon{
        this.name=name
        this.photo=photo
        this.life=life
+       this.attack=[]
     }
 }
-/*  */
+/* Objetos instancia que vienen desde la clase */
 let hipodoge= new Mokepon('Hipodoge','./assets/hipodoge_attack.png',5)
 
 let capipepo = new Mokepon('Capipepo','./assets/capipepo_attack.png',5)
 
 let ratigueya = new Mokepon('Ratigueya','./assets/ratigueya.png',5)
 
+/* Objetos literalios, que solo guardan información  */
+hipodoge.attack.push(
+{nombre:'💧',id:'boton-agua'},
+{nombre:'💧',id:'boton-agua'},
+{nombre:'💧',id:'boton-agua'},
+{nombre:'🔥',id:'boton-fuego'},
+{nombre:'🥌',id:'boton-tierra'},
+)
+
+capipepo.attack.push(
+{nombre:'🥌',id:'boton-tierra'},
+{nombre:'🥌',id:'boton-tierra'},
+{nombre:'🥌',id:'boton-tierra'},
+{nombre:'💧',id:'boton-agua'},
+{nombre:'🔥',id:'boton-fuego'}
+
+)
+
+ratigueya.attack.push(
+    {nombre:'🔥',id:'boton-fuego'},
+    {nombre:'🔥',id:'boton-fuego'},
+    {nombre:'🔥',id:'boton-fuego'},
+    {nombre:'💧',id:'boton-agua'},
+    {nombre:'🥌',id:'boton-tierra'},
+)
+
+
 /* push inyecta los valores en mokepones */
-mokepones.push(hipodoge, capipepo, ratigueya)
-console.log(mokepones);
+/* mokepones.push(hipodoge, capipepo, ratigueya) */
+
 
 function iniciarJuego(){
 
