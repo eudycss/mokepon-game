@@ -89,7 +89,7 @@ mokepones.push(hipodoge, capipepo, ratigueya);
 
 /* push inyecta los valores en mokepones */
 /* mokepones.push(hipodoge, capipepo, ratigueya) */
-
+/* Iniciar Juego */
 function iniciarJuego() {
   sectionSelectAtack.style.display = "none";
   /* Hacer algo por cada uno de los elementos del arreglo */
@@ -120,6 +120,8 @@ function iniciarJuego() {
 
   buttonRestart.addEventListener("click", restartGame);
 }
+
+/*----------- Seleccionar mascota Jugador------------------ */
 function SeleccionarMascotaJugador() {
   sectionSelectPet.style.display = "none";
 
@@ -128,11 +130,11 @@ function SeleccionarMascotaJugador() {
   //Spam botonMascotaJugador
 
   if (inputHipodoge.checked) {
-    spanMascotaJugador.innerHTML = "Hipodoge";
+    spanMascotaJugador.innerHTML = inputHipodoge.id
   } else if (inputcapipepo.checked) {
-    spanMascotaJugador.innerHTML = "Capipepo";
+    spanMascotaJugador.innerHTML = inputcapipepo.id
   } else if (inputratigueya.checked) {
-    spanMascotaJugador.innerHTML = "Ratigueya";
+    spanMascotaJugador.innerHTML =inputratigueya.id
   } else {
     alert("You shoul select one option");
   }
