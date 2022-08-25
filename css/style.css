@@ -66,8 +66,12 @@ font-size:20px;
 }
 
 input{
-    display: none;
+     display: none; 
 }
+input:checked +label{
+    background-color: #1abc7b;
+}
+
 
 #seleccionar-ataque{
     
