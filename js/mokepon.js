@@ -26,7 +26,7 @@ const sectionMensajes = document.getElementById('resultado');
 const ataquesDelJugador = document.getElementById("ataque-del-jugador");
 const ataquesDelEnemigo = document.getElementById("ataque-del-enemigo");
 
-
+const contenedorTarjetas=document.getElementById('contenedorTarjetas')
 const sectionMensaje=document.getElementById('resultado');
  const botonFuego=document.getElementById("boton-fuego")
  const botonAgua=document.getElementById("boton-agua")
@@ -37,6 +37,9 @@ let mokepones =[]
 
 let ataqueJugador
 let ataqueEnemigo
+
+let opcionDeMokepones
+
 let resultadoPelea
 let lifesgame
 let winPlayer=3
@@ -89,6 +92,8 @@ ratigueya.attack.push(
     {nombre:'🥌',id:'boton-tierra'},
 )
 
+mokepones.push(hipodoge,capipepo, ratigueya)
+
 
 /* push inyecta los valores en mokepones */
 /* mokepones.push(hipodoge, capipepo, ratigueya) */
@@ -98,7 +103,18 @@ function iniciarJuego(){
 
     
     sectionSelectAtack.style.display='none'
+/* Hacer algo por cada uno de los elementos del arreglo */
+    mokepones.forEach((mokepon)=>{
+        /* templates literarios */
+        opcionDeMokepones=`   <input  type="radio"  name="mascota" id=${mokepon.name} >
+        <label class="tarjeta-de-mokepon" for=${mokepon.name}>
+          
+        <p>${mokepon.name}</p>  
+        <img src=${mokepon.photo} alt=${mokepon.name}>
+        </label>`
 
+        contenedorTarjetas.innerHTML+=opcionDeMokepones
+    })
     sectionRestart.style.display='none'
     botonMascotaJugador.addEventListener('click',SeleccionarMascotaJugador)
 
