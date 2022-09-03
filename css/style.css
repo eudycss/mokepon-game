@@ -27,7 +27,7 @@ color: #3F0071;
 font-size:20px;
 }
 
-.tarjetas{
+.tarjetas, .tarjetas-ataques{
     display: flex;
     gap: 10px;
 }
@@ -80,23 +80,23 @@ input:checked +label{
     align-items: center;
 }
 
-.boton-de-atack{
+#boton-de-ataque{
     background-color: #764ade;
     border-radius: 10px;
     padding: 10px;
     box-sizing: border-box;
-    border-radius: 20px;
+    border-radius: 50px;
     border-color: transparent;
-    width: 180px;
+    width: 80px;
     color: white;
     font-family: 'Poppins', sans-serif;
 }
-.button-atacks{
+/* .button-atacks{
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-}
+} */
 #mensajes{
     width: 270;
     background: #e9e4f0;
@@ -119,14 +119,25 @@ input:checked +label{
     grid-template-columns: 100px 100px;
 }
 
+
 .enemies-atacks, .players-atacks{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
+#see-map{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center
+}
+
+#map{
+    border: 2px solid white
+}
 /* max-width es desde cero hasta el max-width donde va a funcionar nuestro css */
 @media (max-width: 565px){
-    .tarjetas, .button-atacks{
+    .tarjetas, .tarjetas-ataques{
         flex-direction: column;
     }
 }
