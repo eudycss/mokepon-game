@@ -59,6 +59,9 @@ let enemyVictories=0
 
 let lienzo=map.getContext("2d")
 let intervalo
+let backGroundMap= new Image()
+backGroundMap.src='./assets/mokemap.png'
+let objectPlayerPet
 /* Creare class */
 /* Constructor= Lo que se va a construir 
     his=hace referencia esto mismo
@@ -146,9 +149,7 @@ function SeleccionarMascotaJugador() {
   sectionSelectPet.style.display = "none";
 
   /* sectionSelectAtack.style.display = "flex"; */
-  sectionSeeMap.style.display='flex'
-
-  mapStart()
+ 
   
 
   //Spam botonMascotaJugador
@@ -166,6 +167,8 @@ function SeleccionarMascotaJugador() {
   }
 
   extractAttacks(playerPet)
+  sectionSeeMap.style.display='flex'
+  mapStart()
   seleccionarMascotaEnemigo()
 }
 
@@ -385,16 +388,25 @@ function aleatorio(min, max) {
 }
 
 /* Paint character */
-function pintarPersonaje(){
-  capipepo.x=capipepo.x+capipepo.speedX
-  capipepo.y=capipepo.y+capipepo.speedY
+function drawCanvas(){
+  
+  objectPlayerPet.x=objectPlayerPet.x+objectPlayerPet.speedX
+  objectPlayerPet.y=objectPlayerPet.y+objectPlayerPet.speedY
   lienzo.clearRect(0,0, map.width, map.height)
   lienzo.drawImage(
-    capipepo.mapaFoto,
-    capipepo.x,
-    capipepo.y,
-    capipepo.ancho,
-    capipepo.alto
+    backGroundMap,
+    0,
+    0,
+    map.width, 
+    map.height
+
+  )
+  lienzo.drawImage(
+    objectPlayerPet.mapaFoto,
+    objectPlayerPet.x,
+    objectPlayerPet.y,
+    objectPlayerPet.ancho,
+    objectPlayerPet.alto
   
     )
 }
@@ -402,52 +414,67 @@ function pintarPersonaje(){
 /* Mover Persojae */
 
 function moveUP(){
-  capipepo.speedY=-5
+  objectPlayerPet.speedY=-5
   
 }
 
 function moveBotton(){
-  capipepo.speedY=5
+  objectPlayerPet.speedY=5
 }
 function moveLeft(){
-  capipepo.speedX=-5
+  objectPlayerPet.speedX=-5
 }
 
 function moveRight(){
-  capipepo.speedX=5
+
+  objectPlayerPet.speedX=5
 }
 
 function movingStop(){
-  capipepo.speedX=0
-  capipepo.speedY=0
+  
+  objectPlayerPet.speedX=0
+  objectPlayerPet.speedY=0
 }
 
 function keyIsPressed(event){
   switch(event.key){
     case 'ArrowUp':
       moveUP()
-      break;
+      break
     case 'ArrowDown':
       moveBotton()
-      break;
+      break
 
       case 'ArrowLeft':
         moveLeft()
-        break;
+        break
       case 'ArrowRight':
         moveRight()
-        break;
+        break
       default:
-        break;
+        break
   }
 }
 
 function mapStart(){
-  
-  intervalo=setInterval(pintarPersonaje,50)
+  map.width=320
+  map.height=240
+  objectPlayerPet=obtenerObjetoMascota(playerPet)
+  console.log(objectPlayerPet, playerPet);
+  intervalo=setInterval(drawCanvas,50)
 
   window.addEventListener('keydown',keyIsPressed)
   window.addEventListener('keyup',movingStop)
+}
+
+
+/*  */
+function obtenerObjetoMascota(){
+  for (let i = 0; i < mokepones.length; i++) {
+    if(playerPet === mokepones[i].name){
+        return mokepones[i]
+    }
+} 
 }
 //primero que cargue el html y luego este js
 window.addEventListener("load", iniciarJuego);
