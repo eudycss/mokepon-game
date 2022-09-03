@@ -147,8 +147,9 @@ function SeleccionarMascotaJugador() {
 
   /* sectionSelectAtack.style.display = "flex"; */
   sectionSeeMap.style.display='flex'
+
+  mapStart()
   
-  intervalo=setInterval(pintarPersonaje,50)
 
   //Spam botonMascotaJugador
   if (inputHipodoge.checked) {
@@ -421,6 +422,32 @@ function movingStop(){
   capipepo.speedY=0
 }
 
+function keyIsPressed(event){
+  switch(event.key){
+    case 'ArrowUp':
+      moveUP()
+      break;
+    case 'ArrowDown':
+      moveBotton()
+      break;
 
+      case 'ArrowLeft':
+        moveLeft()
+        break;
+      case 'ArrowRight':
+        moveRight()
+        break;
+      default:
+        break;
+  }
+}
+
+function mapStart(){
+  
+  intervalo=setInterval(pintarPersonaje,50)
+
+  window.addEventListener('keydown',keyIsPressed)
+  window.addEventListener('keyup',movingStop)
+}
 //primero que cargue el html y luego este js
 window.addEventListener("load", iniciarJuego);
