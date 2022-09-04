@@ -132,6 +132,20 @@ input:checked +label{
     justify-content: center
 }
 
+
+#see-map button{
+    
+    width: 80px;
+    height: 40px;
+    border-radius: 20px;
+    background: transparent;
+    /*  background-color: #1abc7b;*/
+    border: 2px  solid #1abc7b;
+    /* margin-top: 20px; */
+    font-family: 'Poppins', sans-serif;
+    color: rgb(9, 2, 26);
+    margin: 4px 0;
+}
 /* #map{
     border: 2px solid white
 } */
@@ -140,4 +154,12 @@ input:checked +label{
     .tarjetas, .tarjetas-ataques{
         flex-direction: column;
     }
+}
+
+@media (max-width: 300px){
+  #see-map div{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
 }
