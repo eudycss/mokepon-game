@@ -195,7 +195,23 @@ function iniciarJuego() {
   
   botonMascotaJugador.addEventListener("click", SeleccionarMascotaJugador);
   buttonRestart.addEventListener("click", restartGame);
+
+  joinToGame()
 }
+
+/* Last functions */
+function joinToGame(){
+fetch("http://localhost:8080/join")
+  .then(function (res){ 
+     
+      if(res.ok){
+        res.text()
+          .then(function (resp){ 
+            console.log(resp)
+          })
+      }
+    }) 
+ }
 
 /*----------- Seleccionar mascota Jugador------------------ */
 function SeleccionarMascotaJugador() {
