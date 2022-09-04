@@ -132,9 +132,9 @@ input:checked +label{
     justify-content: center
 }
 
-#map{
+/* #map{
     border: 2px solid white
-}
+} */
 /* max-width es desde cero hasta el max-width donde va a funcionar nuestro css */
 @media (max-width: 565px){
     .tarjetas, .tarjetas-ataques{
