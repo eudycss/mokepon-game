@@ -26,7 +26,7 @@ const attacksContent=document.getElementById("attacksContent")
 const sectionSeeMap=document.getElementById('see-map')
 const map=document.getElementById('map')
 
-
+let playerId=null
 /* Arrays */
 let mokepones = [];
 let buttons=[]
@@ -208,6 +208,7 @@ fetch("http://localhost:8080/join")
         res.text()
           .then(function (resp){ 
             console.log(resp)
+            playerId=resp
           })
       }
     }) 
@@ -231,6 +232,7 @@ function SeleccionarMascotaJugador() {
     alert("You should select one option");
   }
 
+  selectMokepon(playerPet)
   extractAttacks(playerPet)
   sectionSeeMap.style.display='flex'
   mapStart()
@@ -238,7 +240,18 @@ function SeleccionarMascotaJugador() {
 }
 
 
-
+function selectMokepon(playerPet){
+  fetch(`http://localhost:8080/mokepon/${playerId}`,{
+    method:"post",
+    headers:{
+      "Content-Type": "application/json"
+    },
+    body:JSON.stringify({ 
+      mokepon:playerPet
+    })
+  })
+  
+}
 
 
 /* Extract attacks */
@@ -467,6 +480,8 @@ function drawCanvas(){
 
   )
   objectPlayerPet.drawMokepon()
+
+  sendPosition(objectPlayerPet.x, objectPlayerPet.y)
   hipodogeEnemy.drawMokepon()
   capipepoEnemy.drawMokepon()
   ratigueyaEnemy.drawMokepon()
@@ -477,6 +492,18 @@ function drawCanvas(){
       reviewColision(capipepoEnemy)
       reviewColision(ratigueyaEnemy)
   }
+}
+
+/* send position */
+function sendPosition(x,y){
+fetch(`http://localhost:8080/mokepon/${playerId}/position`,{
+method: "post",
+headers: {'Content-Type': 'application/json'}, 
+body: JSON.stringify({
+  x ,
+  y
+})
+})
 }
 
 /* Mover Persojae */
